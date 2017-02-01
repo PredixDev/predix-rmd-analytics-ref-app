@@ -1,0 +1,21 @@
+git status
+pwd
+cd predix-scripts
+git checkout develop
+cd ../predix-sdks
+git checkout  develop
+cd ../predix-rmd-ref-app
+git checkout  develop
+cd ../Predix-HelloWorld-WebApp
+git checkout develop
+cd ../fdh-router-service
+git checkout develop
+cd ../rabbitmq-consumer-template
+git checkout  develop
+cd ../rabbitmq-producer-template
+git checkout  develop
+cd ../rmd-analytics
+git checkout  develop
+cd ../rmd-orchestration
+git checkout  develop
+

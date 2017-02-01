@@ -1,0 +1,6 @@
+scripts/*.pyc
+.project
+.settings/
+asset_payload.json
+json_output.txt
+

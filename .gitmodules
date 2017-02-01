@@ -1,0 +1,24 @@
+[submodule "rmd-orchestration"]
+	path = rmd-orchestration
+	url = https://github.build.ge.com/adoption/rmd-orchestration.git
+	branch = master
+[submodule "rmd-analytics"]
+	path = rmd-analytics
+	url = https://github.build.ge.com/adoption/rmd-analytics.git
+	branch = master
+[submodule "Predix-HelloWorld-WebApp"]
+	path = Predix-HelloWorld-WebApp
+	url = https://github.build.ge.com/adoption/Predix-HelloWorld-WebApp.git
+	branch = master
+[submodule "predix-scripts"]
+	path = predix-scripts
+	url = https://github.build.ge.com/adoption/predix-scripts.git
+	branch = master
+[submodule "predix-sdks"]
+	path = predix-sdks
+	url = https://github.build.ge.com/adoption/predix-sdks.git
+	branch = master
+[submodule "predix-rmd-ref-app"]
+	path = predix-rmd-ref-app
+	url = https://github.build.ge.com/adoption/predix-rmd-ref-app.git
+	branch = master
