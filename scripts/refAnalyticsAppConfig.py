@@ -158,7 +158,7 @@ rabbitMQConsumerAppName = instanceName+"-rabbitmq-consumer-template"
 rmdAnalyticsAppName = instanceName+"-rmd-analytics"
 rmdOrchestrationClientAppName = instanceName+"-fce-consumer"
 
-if environment == 'PROD':
+if environment == 'PROD' or environment == 'USWEST' or environment == 'USEAST' or environment == 'JAPAN' or environment == 'UK' or environment == 'FREE' :
     # Predix Service Instance Name for VPC
     predixUaaService = "predix-uaa"
     predixAcsService = "predix-acs"
@@ -179,7 +179,7 @@ if environment == 'PROD':
     predixAnalyticsRuntimePlan = "Free"
 
     artifactoryrepo = "https://artifactory.predix.io/artifactory/PREDIX-EXT"
-elif environment == 'FREE':
+elif environment == 'CF3FREE':
     predixUaaService = "predix-uaa"
     predixAcsService = "predix-acs"
     predixAssetService = "predix-asset-sysint"
@@ -219,7 +219,7 @@ elif environment == 'HACK' :
     predixBlobstorePlan = "Tiered"
     predixAnalyticsCatalogPlan = "Free"
     predixAnalyticsRuntimePlan = "Free"
-else :
+elif environment == 'R2':
     # Predix Service Instance Name for sysint
     predixUaaService = "predix-uaa-sysint"
     predixAcsService = "predix-acs-sysint"
@@ -238,7 +238,9 @@ else :
     predixRabbitMQPlan = "standard"
     predixAnalyticsCatalogPlan = "Beta"
     predixAnalyticsRuntimePlan = "Beta"
-
+else :
+    sys.exit("Please identify which env")
+    
 #Reference application client id
 rmdAppClientId = "app_client_id"
 rmdAppSecret = "secret"

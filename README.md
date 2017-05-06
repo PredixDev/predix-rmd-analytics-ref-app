@@ -44,7 +44,7 @@ The names of services, apps and ids, e.g. the default UAA configuration configur
  uaaAdminSecret = "secre"
  ```
  
-###[FDH-Router-service - DataExchange](https://github.com/PredixDev/fdh-router-service#fdh-router-service)
+###[DataExchange](https://github.com/PredixDev/data-exchange#data-exchange)
 ###[RMD-Analytics-service](https://github.com/PredixDev/rmd-analytics)
 ###[RMD-Orchestration-service](https://github.com/PredixDev/rmd-orchestration)
 ###[RabbitMQ-service](https://www.predix.io/services/service.html?id=1182)

@@ -8,12 +8,8 @@ cd ../predix-rmd-ref-app
 git checkout  develop
 cd ../Predix-HelloWorld-WebApp
 git checkout develop
-cd ../fdh-router-service
+cd ../data-exchange
 git checkout develop
-cd ../rabbitmq-consumer-template
-git checkout  develop
-cd ../rabbitmq-producer-template
-git checkout  develop
 cd ../rmd-analytics
 git checkout  develop
 cd ../rmd-orchestration
