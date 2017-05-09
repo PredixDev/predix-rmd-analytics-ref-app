@@ -14,3 +14,11 @@
 	path = predix-scripts
 	url = https://github.com/PredixDev/predix-scripts.git
 	branch = master
+[submodule "predix-sdks"]
+	path = predix-sdks
+	url = https://github.com/PredixDev/predix-sdks.git
+	branch = master
+[submodule "predix-rmd-ref-app"]
+	path = predix-rmd-ref-app
+	url = https://github.com/PredixDev/predix-rmd-ref-app.git
+	branch = master
