@@ -48,6 +48,7 @@ QUICKSTART_ARGS="-rmq -af -armd -fce $SCRIPT"
 IZON_SH="https://raw.githubusercontent.com/PredixDev/izon/$BRANCH/izon.sh"
 VERSION_JSON="version.json"
 PREDIX_SCRIPTS=predix-scripts
+REPO_NAME=predix-rmd-analytics-ref-app
 VERSION_JSON="version.json"
 APP_NAME="Predix RMD Analytics Application"
 SCRIPT_NAME="quickstart-refanalyticsappp.sh"
@@ -55,7 +56,7 @@ TOOLS="Cloud Foundry CLI, Git, Maven, Predix CLI"
 TOOLS_SWITCHES="--cf --git --maven --predixcli"
 
 local_read_args $@
-VERSION_JSON_URL=https://raw.githubusercontent.com/PredixDev/Predix-HelloWorld-WebApp/$BRANCH/version.json
+VERSION_JSON_URL=https://raw.githubusercontent.com/PredixDev/predix-rmd-analytics-ref-app/$BRANCH/version.json
 
 function check_internet() {
   set +e

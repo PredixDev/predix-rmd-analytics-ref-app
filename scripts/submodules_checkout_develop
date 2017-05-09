@@ -2,16 +2,9 @@ git status
 pwd
 cd predix-scripts
 git checkout develop
-cd ../predix-sdks
-git checkout  develop
-cd ../predix-rmd-ref-app
-git checkout  develop
 cd ../Predix-HelloWorld-WebApp
-git checkout develop
-cd ../data-exchange
 git checkout develop
 cd ../rmd-analytics
 git checkout  develop
 cd ../rmd-orchestration
 git checkout  develop
-
