@@ -15,7 +15,7 @@
 
 	</modules>
 	<properties>
-		
+
 	</properties>
 
 	<dependencies>
@@ -24,7 +24,7 @@
 
 	<build>
 		<plugins>
-			
+
 		</plugins>
 	</build>
 

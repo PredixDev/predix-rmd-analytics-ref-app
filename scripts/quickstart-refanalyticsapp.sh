@@ -45,7 +45,6 @@ SKIP_SETUP=false
 SKIP_PULL=false
 SCRIPT="-script digital-twin.sh -script-readargs digital-twin-readargs.sh"
 QUICKSTART_ARGS="-rmq -af -armd -fce $SCRIPT"
-IZON_SH="https://raw.githubusercontent.com/PredixDev/izon/$BRANCH/izon.sh"
 VERSION_JSON="version.json"
 PREDIX_SCRIPTS=predix-scripts
 REPO_NAME=predix-rmd-analytics-ref-app
@@ -56,6 +55,7 @@ TOOLS="Cloud Foundry CLI, Git, Maven, Predix CLI"
 TOOLS_SWITCHES="--cf --git --maven --predixcli"
 
 local_read_args $@
+IZON_SH="https://raw.githubusercontent.com/PredixDev/izon/$BRANCH/izon.sh"
 VERSION_JSON_URL=https://raw.githubusercontent.com/PredixDev/predix-rmd-analytics-ref-app/$BRANCH/version.json
 
 function check_internet() {
@@ -81,34 +81,12 @@ function init() {
   fi
 
   check_internet
-  #if needed, get the version.json that resolves dependent repos from another github repo
-  if [ ! -f "$VERSION_JSON" ]; then
-    if [[ $currentDir == *"$REPO_NAME" ]]; then
-      if [[ ! -f manifest.yml ]]; then
-        echo 'We noticed you are in a directory named $REPO_NAME but the usual contents are not here, please rename the dir or do a git clone of the whole repo.  If you rename the dir, the script will get the repo.'
-        exit 1
-      fi
-    fi
-    echo $VERSION_JSON_URL
-    curl -s -O $VERSION_JSON_URL
-  fi
 
   #get the script that reads version.json
   eval "$(curl -s -L $IZON_SH)"
-  #get the url and branch of the requested repo from the version.json
-  #__readDependency "local-setup" LOCAL_SETUP_URL LOCAL_SETUP_BRANCH
-  #get the predix-scripts url and branch from the version.json
-  if [ ! -d "../predix-rmd-analytics-ref-app" ]; then
-    __readDependency "predix-rmd-analytics-ref-app" PREDIX_REFAPP_URL PREDIX_REFAPP_BRANCH
-    git clone --depth 1 --branch $PREDIX_REFAPP_BRANCH $PREDIX_REFAPP_URL
-    cd predix-rmd-analytics-ref-app
-  fi
 
-  echo "Pulling Submodules"
-  if ! $SKIP_PULL; then
-    ./scripts/pullSubModules.sh
-  fi
-  source $PREDIX_SCRIPTS/bash/scripts/local-setup-funcs.sh
+  getVersionFile
+  getLocalSetupFuncs
 }
 
 
@@ -124,6 +102,16 @@ else
   fi
 fi
 
+getPredixScripts
+#clone the repo itself if running from oneclick script
+getCurrentRepo
+
+cd predix-scripts/$REPO_NAME
+echo "Pulling Submodules"
+if ! $SKIP_PULL; then
+  ./scripts/pullSubModules.sh
+fi
+cd ../..
 
 echo "quickstart_args=$QUICKSTART_ARGS"
 source $PREDIX_SCRIPTS/bash/quickstart.sh $QUICKSTART_ARGS
