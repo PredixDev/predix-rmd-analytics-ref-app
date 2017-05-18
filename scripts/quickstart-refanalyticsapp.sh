@@ -49,6 +49,7 @@ VERSION_JSON="version.json"
 PREDIX_SCRIPTS=predix-scripts
 REPO_NAME=predix-rmd-analytics-ref-app
 VERSION_JSON="version.json"
+APP_DIR="digital-twin-analytics"
 APP_NAME="Predix RMD Analytics Application"
 SCRIPT_NAME="quickstart-refanalyticsappp.sh"
 TOOLS="Cloud Foundry CLI, Git, Maven, Predix CLI"
@@ -79,7 +80,10 @@ function init() {
     echo 'Please launch the script from the root dir of the project'
     exit 1
   fi
-
+  if [[ ! $currentDir == *"$REPO_NAME" ]]; then
+    mkdir -p $APP_DIR
+    cd $APP_DIR
+  fi
   check_internet
 
   #get the script that reads version.json
