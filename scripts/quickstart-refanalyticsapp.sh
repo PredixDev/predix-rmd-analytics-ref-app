@@ -44,7 +44,6 @@ PRINT_USAGE=0
 SKIP_SETUP=false
 SKIP_PULL=false
 SCRIPT="-script digital-twin.sh -script-readargs digital-twin-readargs.sh"
-QUICKSTART_ARGS="-rmq -af -armd -fce $SCRIPT"
 VERSION_JSON="version.json"
 PREDIX_SCRIPTS=predix-scripts
 REPO_NAME=predix-rmd-analytics-ref-app
@@ -56,6 +55,8 @@ TOOLS="Cloud Foundry CLI, Git, Maven, Predix CLI"
 TOOLS_SWITCHES="--cf --git --maven --predixcli"
 
 local_read_args $@
+QUICKSTART_ARGS+=" -rmq -af -armd -fce $SCRIPT"
+
 IZON_SH="https://raw.githubusercontent.com/PredixDev/izon/$BRANCH/izon.sh"
 VERSION_JSON_URL=https://raw.githubusercontent.com/PredixDev/predix-rmd-analytics-ref-app/$BRANCH/version.json
 
@@ -108,14 +109,14 @@ fi
 
 getPredixScripts
 #clone the repo itself if running from oneclick script
-getCurrentRepo
+#getCurrentRepo
 
-cd predix-scripts/$REPO_NAME
-echo "Pulling Submodules"
-if ! $SKIP_PULL; then
-  ./scripts/pullSubModules.sh
-fi
-cd ../..
+#cd predix-scripts/$REPO_NAME
+# echo "Pulling Submodules"
+# if ! $SKIP_PULL; then
+#   ./scripts/pullSubModules.sh
+# fi
+#cd ../..
 
 echo "quickstart_args=$QUICKSTART_ARGS"
 source $PREDIX_SCRIPTS/bash/quickstart.sh $QUICKSTART_ARGS

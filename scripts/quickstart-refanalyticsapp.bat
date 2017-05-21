@@ -33,10 +33,14 @@ IF [!BRANCH!]==[] (
 
 SET IZON_BAT=https://raw.githubusercontent.com/PredixDev/izon/master/izon.bat
 SET TUTORIAL=https://www.predix.io/resources/tutorials/journey.html#1611
+SET REPO_NAME=predix-rmd-analytics-ref-app
 SET SHELL_SCRIPT_NAME=quickstart-refanalyticsapp.sh
 SET APP_NAME=Predix Analytics Reference Application
 SET TOOLS=Cloud Foundry CLI, Git, Maven, Predix CLI
 SET TOOLS_SWITCHES=/cf /git /maven /predixcli
+
+SET SHELL_SCRIPT_URL=https://raw.githubusercontent.com/PredixDev/!REPO_NAME!/!BRANCH!/scripts/!SHELL_SCRIPT_NAME!
+
 GOTO START
 
 :CHECK_DIR
@@ -74,17 +78,17 @@ GOTO :eof
 GOTO :eof
 
 :INIT
-IF not "!CURRENTDIR!"=="!CURRENTDIR:System32=!" (
-    ECHO.
-    ECHO.
-    ECHO Exiting tutorial.  Looks like you are in the system32 directory, please change directories, e.g. \Users\your-login-name
-    EXIT /b 1
+  IF not "!CURRENTDIR!"=="!CURRENTDIR:System32=!" (
+      ECHO.
+      ECHO.
+      ECHO Exiting tutorial.  Looks like you are in the system32 directory, please change directories, e.g. \Users\your-login-name
+      EXIT /b 1
   )
-IF not "!CURRENTDIR!"=="!CURRENTDIR:\scripts=!" (
-    ECHO.
-    ECHO.
-    ECHO Exiting tutorial.  Please launch the script from the root dir of the project
-    EXIT /b 1
+  IF not "!CURRENTDIR!"=="!CURRENTDIR:\scripts=!" (
+      ECHO.
+      ECHO.
+      ECHO Exiting tutorial.  Please launch the script from the root dir of the project
+      EXIT /b 1
   )
 
   ECHO Let's start by verifying that you have the required tools installed.
@@ -160,10 +164,10 @@ if !CF_URL!=="" (
   cf login -a !CF_URL! -u !CF_USER! -p !CF_PASSWORD! -o !CF_ORG! -s !CF_SPACE!
 )
 
-
-ECHO Running the !CURRENTDIR!\scripts\%SHELL_SCRIPT_NAME% script using Git-Bash
+powershell -Command "(new-object net.webclient).DownloadFile('!SHELL_SCRIPT_URL!','!CURRENTDIR!\!SHELL_SCRIPT_NAME!')"
+ECHO Running the !CURRENTDIR!\%SHELL_SCRIPT_NAME% script using Git-Bash
 cd !CURRENTDIR!
 ECHO.
-"%PROGRAMFILES%\Git\bin\bash" --login -i -- "!CURRENTDIR!\scripts\%SHELL_SCRIPT_NAME%" -b !BRANCH! --skip-setup !QUICKSTART_ARGS!
+"%PROGRAMFILES%\Git\bin\bash" --login -i -- "!CURRENTDIR!\%SHELL_SCRIPT_NAME%" -b !BRANCH! --skip-setup !QUICKSTART_ARGS!
 
 POPD
