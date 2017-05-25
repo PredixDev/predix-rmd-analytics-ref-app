@@ -1,6 +1,6 @@
 {
   "name": "Predix RMD Analytics App",
-  "version": "1.0.80",
+  "version": "1.0.84",
   "private": true,
   "dependencies": {
     "local-setup": "https://github.com/PredixDev/local-setup#1.0.11",
