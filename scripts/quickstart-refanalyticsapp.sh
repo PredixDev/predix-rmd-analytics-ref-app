@@ -56,7 +56,7 @@ TOOLS_SWITCHES="--cf --git --maven --predixcli"
 
 local_read_args $@
 QUICKSTART_ARGS+=" "
-QUICKSTART_ARGS+="-pxclimin 0.6.3 -rmq -af -armd -fce $SCRIPT"
+QUICKSTART_ARGS+="-pxclimin 0.6.3 -rmq -bindrmq -af -armd -fce $SCRIPT"
 
 IZON_SH="https://raw.githubusercontent.com/PredixDev/izon/$BRANCH/izon.sh"
 VERSION_JSON_URL=https://raw.githubusercontent.com/PredixDev/predix-rmd-analytics-ref-app/$BRANCH/version.json

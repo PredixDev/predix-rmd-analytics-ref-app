@@ -1,13 +1,13 @@
 {
   "name": "Predix RMD Analytics App",
-  "version": "1.0.135",
+  "version": "1.0.136",
   "private": true,
   "dependencies": {
-    "local-setup": "https://github.com/PredixDev/local-setup#1.0.17",
-    "predix-scripts": "https://github.com/PredixDev/predix-scripts#1.1.51",
-    "rmd-analytics": "https://github.com/PredixDev/rmd-analytics.git#4.0.42",
-    "rmd-orchestration": "https://github.com/PredixDev/rmd-orchestration.git#2.0.34",
-    "predix-rmd-analytics-ref-app": "https://github.com/PredixDev/predix-rmd-analytics-ref-app.git#1.0.135"
+    "local-setup": "https://github.com/PredixDev/local-setup#1.0.20",
+    "predix-scripts": "https://github.com/PredixDev/predix-scripts#1.1.52",
+    "rmd-analytics": "https://github.com/PredixDev/rmd-analytics.git#4.0.44",
+    "rmd-orchestration": "https://github.com/PredixDev/rmd-orchestration.git#2.0.36",
+    "predix-rmd-analytics-ref-app": "https://github.com/PredixDev/predix-rmd-analytics-ref-app.git#1.0.136"
   },
   "author": "devrel",
   "license": "n/a"
