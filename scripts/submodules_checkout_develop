@@ -1,0 +1,6 @@
+git status
+pwd
+cd ../rmd-analytics
+git checkout  develop
+cd ../rmd-orchestration
+git checkout  develop
