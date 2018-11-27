@@ -1,6 +1,0 @@
-[submodule "rmd-orchestration"]
-	path = rmd-orchestration
-	url = https://github.com/PredixDev/rmd-orchestration.git
-[submodule "rmd-analytics"]
-	path = rmd-analytics
-	url = https://github.com/PredixDev/rmd-analytics.git
